@@ -3,7 +3,7 @@ import csv
 
 def procesoMasCorto(processes, burst_times):
     """
-    Implementa el algoritmo de El Proceso Más Corto Primero (SJF).
+    Implementa el algoritmo de El Proceso Mas Corto Primero (SJF).
 
     :param processes: Lista de nombres de procesos.
     :param burst_times: Lista de tiempos de ráfaga de cada proceso.
@@ -40,7 +40,7 @@ def read_csv(filename):
 
 
 # Ejemplo de uso
-filename = 'CSV/algoritmos_planificacion.csv'  # Ruta del archivo CSV
+filename = '../CSV/algoritmos_planificacion.CSV'  # Ruta del archivo CSV
 
 # Leer el CSV y ejecutar SJF
 processes, burst_times = read_csv(filename)

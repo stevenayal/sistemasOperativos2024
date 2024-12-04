@@ -51,7 +51,7 @@ def read_csv(filename):
 
 
 # Ejemplo de uso
-filename = 'CSV/algoritmos_planificacion.csv'  # Ruta del archivo CSV
+filename = '../CSV/algoritmos_planificacion.CSV'  # Ruta del archivo CSV
 
 # Solicitar al usuario que ingrese el quantum
 quantum = int(input("Ingrese el valor del quantum: "))
