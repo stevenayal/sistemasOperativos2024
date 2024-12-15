@@ -119,65 +119,46 @@ E | 6 | 8 | 28 | 14 | 22
 B | 2 | 13 | 41 | 26 | 39 
 ````
 ¿Qué ventajas presenta cada uno?
-1. Round Robin con Quantum = 1
-#### Tiempo de Finalización: 
-o C: 11, F: 14, A: 8, D: 20, E: 28, B: 41
-#### Tiempo de Espera Promedio:
-(4 + 5 + 0 + 10 + 14 + 26) / 6 = 9.17
-#### Tiempo de Retorno Promedio:
-(7 + 8 + 8 + 16 + 22 + 39) / 6 = 16
-#### Ventajas:
-#### Interactividad:
-Permite que todos los procesos reciban tiempo de CPU, lo cual es ideal 
-para sistemas interactivos donde la respuesta rápida es crucial.
-#### Simplicidad:
-Es fácil de implementar y entender.
-#### Justicia:
-Todos los procesos tienen la misma oportunidad de ejecutarse, evitando que un 
-proceso monopolice el CPU.
-#### Desventajas:
-#### Alto Tiempo de Espera:
-El tiempo de espera puede ser alto, especialmente para procesos 
-de larga duración, debido a la fragmentación del tiempo de CPU.
-#### Overhead:
-Con quantum de 1, hay un alto número de cambios de contexto, lo que puede 
-llevar a un desperdicio de tiempo.
-2. Round Robin con Quantum = 3
-#### Tiempo de Finalización: 
-o A: 8, B: 41, C: 11, D: 20, E: 28, F: 14
-#### Tiempo de Espera Promedio:
-(0 + 26 + 4 + 10 + 14 + 5) / 6 = 9.17
-#### Tiempo de Retorno Promedio: (8 + 39 + 7 + 16 + 22 + 8) / 6 = 16
-#### Ventajas:
-#### Mejor Rendimiento:
-Un quantum mayor reduce el número de cambios de contexto, lo 
-que puede mejorar el rendimiento general.
-#### Equilibrio:
-Mantiene la equidad, permitiendo que los procesos se ejecuten en intervalos 
-más largos, lo que puede reducir el tiempo de espera.
-#### Desventajas:
-#### No Ideal para Procesos Cortos:
-Puede ser menos eficiente para procesos cortos que 
-podrían completarse rápidamente si se les da tiempo suficiente.
-#### Complejidad en Ajustes:
-Elegir el tamaño de quantum correcto puede ser complicado y 
-depende de la carga de trabajo.
 
-3. Proceso Más Corto a Continuación (SJF)
-- **Tiempo de Finalización:** 
-o A: 8, C: 11, F: 14, D: 20, E: 28, B: 41
-- **Tiempo de Espera Promedio:**
-(0 + 4 + 5 + 10 + 14 + 26) / 6 = 9.17
-- **Tiempo de Retorno Promedio:** 
-(8 + 7 + 8 + 16 + 22 + 39) / 6 = 16
-#### Ventajas:
-- **Minimiza el Tiempo de Espera:** SJF generalmente tiene el menor tiempo de espera 
-promedio, lo que mejora la eficiencia de CPU.
-- **Ideal para Procesos Cortos:** Proporciona un rendimiento superior para cargas de trabajo 
-con procesos de corta duración. 
-#### Desventajas:
-- **Injusticia:** Los procesos largos pueden quedar en espera indefinidamente (starvation), ya 
-que los procesos cortos siempre tienen prioridad.
-- **Conocimiento del Tiempo de Ejecución:**
-SJF requiere que se conozcan de antemano los 
-tiempos de ejecución de los procesos, lo cual no siempre es posible.
+## 1. Round Robin con Quantum = 1
+
+| Aspecto                             | Detalles                                                                                     |
+|-------------------------------------|----------------------------------------------------------------------------------------------|
+| **Tiempo de Finalización**          | C: 11, F: 14, A: 8, D: 20, E: 28, B: 41                                                     |
+| **Tiempo de Espera Promedio**      | (4 + 5 + 0 + 10 + 14 + 26) / 6 = 9.17                                                      |
+| **Tiempo de Retorno Promedio**     | (7 + 8 + 8 + 16 + 22 + 39) / 6 = 16                                                        |
+| **Ventajas**                        |                                                                                              |
+| Interactividad                      | Permite que todos los procesos reciban tiempo de CPU, lo cual es ideal para sistemas interactivos donde la respuesta rápida es crucial. |
+| Simplicidad                         | Es fácil de implementar y entender.                                                         |
+| Justicia                            | Todos los procesos tienen la misma oportunidad de ejecutarse, evitando que un proceso monopolice el CPU. |
+| **Desventajas**                     |                                                                                              |
+| Alto Tiempo de Espera              | El tiempo de espera puede ser alto, especialmente para procesos de larga duración, debido a la fragmentación del tiempo de CPU. |
+| Overhead                            | Con quantum de 1, hay un alto número de cambios de contexto, lo que puede llevar a un desperdicio de tiempo. |
+
+## 2. Round Robin con Quantum = 3
+
+| Aspecto                             | Detalles                                                                                     |
+|-------------------------------------|----------------------------------------------------------------------------------------------|
+| **Tiempo de Finalización**          | A: 8, B: 41, C: 11, D: 20, E: 28, F: 14                                                     |
+| **Tiempo de Espera Promedio**      | (0 + 26 + 4 + 10 + 14 + 5) / 6 = 9.17                                                      |
+| **Tiempo de Retorno Promedio**     | (8 + 39 + 7 + 16 + 22 + 8) / 6 = 16                                                        |
+| **Ventajas**                        |                                                                                              |
+| Mejor Rendimiento                   | Un quantum mayor reduce el número de cambios de contexto, lo que puede mejorar el rendimiento general. |
+| Equilibrio                          | Mantiene la equidad, permitiendo que los procesos se ejecuten en intervalos más largos, lo que puede reducir el tiempo de espera. |
+| **Desventajas**                     |                                                                                              |
+| No Ideal para Procesos Cortos      | Puede ser menos eficiente para procesos cortos que podrían completarse rápidamente si se les da tiempo suficiente. |
+| Complejidad en Ajustes             | Elegir el tamaño de quantum correcto puede ser complicado y depende de la carga de trabajo. |
+
+## 3. Proceso Más Corto a Continuación (SJF)
+
+| Aspecto                             | Detalles                                                                                     |
+|-------------------------------------|----------------------------------------------------------------------------------------------|
+| **Tiempo de Finalización**          | A: 8, C: 11, F: 14, D: 20, E: 28, B: 41                                                     |
+| **Tiempo de Espera Promedio**      | (0 + 4 + 5 + 10 + 14 + 26) / 6 = 9.17                                                      |
+| **Tiempo de Retorno Promedio**     | (8 + 7 + 8 + 16 + 22 + 39) / 6 = 16                                                        |
+| **Ventajas**                        |                                                                                              |
+| Minimiza el Tiempo de Espera       | SJF generalmente tiene el menor tiempo de espera promedio, lo que mejora la eficiencia de CPU. |
+| Ideal para Procesos Cortos         | Proporciona un rendimiento superior para cargas de trabajo con procesos de corta duración. |
+| **Desventajas**                     |                                                                                              |
+| Injusticia                          | Los procesos largos pueden quedar en espera indefinidamente (starvation), ya que los procesos cortos siempre tienen prioridad. |
+| Conocimiento del Tiempo de Ejecución| SJF requiere que se conozcan de antemano los tiempos de ejecución de los procesos, lo cual no siempre es posible. |
